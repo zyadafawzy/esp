@@ -1,0 +1,8 @@
+{
+  "name": "CYD Image Display",
+  "version": "1.0",
+  "new_install_prompt_erase": true,
+  "builds": [
+    { "chipFamily": "ESP32", "parts": [ { "path": "cyd_inverted.bin", "offset": 0 } ] }
+  ]
+}

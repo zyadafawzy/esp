@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>تثبيت الشاشة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@600&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+<script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
+<style>
+  :root { --wine:#3a0f24; --rose:#f2a0b8; --gold:#e0b25a; --cream:#fff3ea; }
+  * { box-sizing: border-box; }
+  body { margin:0; min-height:100vh; display:grid; place-items:center; padding:24px;
+         background: radial-gradient(circle at 50% 30%, #6b1f43, var(--wine) 70%);
+         color: var(--cream); font-family: "Tajawal", sans-serif; line-height:1.8; }
+  main { width:100%; max-width:440px; text-align:center; }
+  h1 { font-family:"Reem Kufi", sans-serif; font-weight:600; font-size:2.6rem; margin:0 0 4px; color:var(--gold); }
+  p.lead { margin:0 0 28px; color:var(--rose); }
+  button { font:inherit; font-weight:700; cursor:pointer; border:0; border-radius:999px; padding:14px 34px;
+           background:var(--gold); color:var(--wine); font-size:1.15rem; }
+  button:hover { background:#f0c777; }
+  button:focus-visible { outline:3px solid var(--cream); outline-offset:3px; }
+  button.alt { background:transparent; color:var(--cream); border:1.5px solid var(--rose); padding:9px 22px; font-size:1rem; }
+  ol { text-align:right; margin:32px 0 0; padding-right:22px; }
+  details { margin-top:28px; text-align:right; }
+  summary { cursor:pointer; color:var(--rose); }
+  .row { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:14px; }
+  .warn { margin-top:20px; color:var(--rose); font-size:.95rem; }
+</style>
+</head>
+<body>
+<main>
+  <h1>ثبّت الشاشة</h1>
+  <p class="lead">صورة على الشاشة كلها، ولمسة تغيّرها.</p>
+
+  <esp-web-install-button manifest="manifest-cyd.json">
+    <button slot="activate">تثبيت</button>
+    <span slot="unsupported" class="warn">افتح الصفحة من Chrome أو Edge على الكمبيوتر.</span>
+    <span slot="not-allowed" class="warn">الصفحة لازم تتفتح بـ https.</span>
+  </esp-web-install-button>
+
+  <ol>
+    <li>وصّل البورد بالكمبيوتر بكابل بيانات، مش كابل شحن بس.</li>
+    <li>اضغط «تثبيت» واختار البورت اللي يظهر.</li>
+    <li>استنى لحد ما يخلص، والشاشة هتشتغل لوحدها.</li>
+  </ol>
+
+  <details>
+    <summary>الشاشة سودة أو الألوان مقلوبة؟</summary>
+    <div class="row">
+      <esp-web-install-button manifest="manifest-cyd_inverted.json">
+        <button slot="activate" class="alt">نسخة الألوان المقلوبة</button>
+      </esp-web-install-button>
+      <esp-web-install-button manifest="manifest-cyd_2usb.json">
+        <button slot="activate" class="alt">نسخة 2-USB</button>
+      </esp-web-install-button>
+    </div>
+  </details>
+</main>
+</body>
+</html>
